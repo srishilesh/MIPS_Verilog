@@ -1,5 +1,3 @@
-// CODE FOR TESTBENCH
-
 module andgate_tb;
 
 wire t_y;

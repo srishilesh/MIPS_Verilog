@@ -1,0 +1,64 @@
+module xor_using_nor_tb;
+
+wire t_y1,t_y2,t_y3,t_y4,t_y5;
+reg t_a,t_b,t_c;
+
+xor_using_nor my_gate1(.a(t_a),.a(t_a),.y(t_y1));
+xor_using_nor my_gate2(.b(t_b),.b(t_b),.y(t_y2));
+xor_using_nor my_gate3(.a(t_a),.b(t_b),.y(t_y3));
+xor_using_nor my_gate4(.y(t_y1),.y(t_y2),.y(t_y4));
+xor_using_nor my_gate5(.y(t_y4),.y(t_y3),.y(t_y5));
+
+
+
+initial begin
+
+	t_a = 1'b0;
+	t_b = 1'b0;
+	t_c = 1'b0;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b0;
+	t_c = 1'b1;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b1;
+	t_c = 1'b0;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b1;
+	t_c = 1'b1;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b0;
+	t_c = 1'b0;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b0;
+	t_c = 1'b1;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b1;
+	t_c = 1'b0;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b1;
+	t_c = 1'b1;
+$monitor(t_a,"^",t_b,"^",t_c," = ",t_y);
+
+end 
+endmodule

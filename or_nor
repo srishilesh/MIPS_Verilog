@@ -1,0 +1,113 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-612-ga9388a89)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000027d64f0 .scope module, "or_using_nor_tb" "or_using_nor_tb" 2 1;
+ .timescale 0 0;
+v000000000282ed80_0 .var "t_a", 0 0;
+v000000000282f140_0 .var "t_b", 0 0;
+v000000000282ee20_0 .var "t_c", 0 0;
+v000000000282f320_0 .net "t_y", 0 0, L_000000000282eb00;  1 drivers
+S_00000000001977e0 .scope module, "my_gate" "or_using_nor" 2 6, 3 1 0, S_00000000027d64f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+    .port_info 3 /OUTPUT 1 "y";
+L_00000000027d3cd0 .functor OR 1, v000000000282ed80_0, v000000000282f140_0, C4<0>, C4<0>;
+L_00000000027b3030 .functor OR 1, L_00000000027d3cd0, v000000000282ee20_0, C4<0>, C4<0>;
+L_00000000027e3c40 .functor OR 1, v000000000282ed80_0, v000000000282f140_0, C4<0>, C4<0>;
+L_000000000282f840 .functor OR 1, L_00000000027e3c40, v000000000282ee20_0, C4<0>, C4<0>;
+L_000000000282f900 .functor OR 1, L_000000000282f640, L_000000000282f1e0, C4<0>, C4<0>;
+v0000000000197970_0 .net *"_s0", 0 0, L_00000000027d3cd0;  1 drivers
+v0000000000197a10_0 .net *"_s11", 0 0, L_000000000282f1e0;  1 drivers
+v0000000000197ab0_0 .net *"_s12", 0 0, L_000000000282f900;  1 drivers
+v0000000000197b50_0 .net *"_s2", 0 0, L_00000000027b3030;  1 drivers
+v00000000027e3750_0 .net *"_s5", 0 0, L_000000000282f640;  1 drivers
+v00000000027e37f0_0 .net *"_s6", 0 0, L_00000000027e3c40;  1 drivers
+v00000000027e3890_0 .net *"_s8", 0 0, L_000000000282f840;  1 drivers
+v00000000027e3930_0 .net "a", 0 0, v000000000282ed80_0;  1 drivers
+v00000000027e39d0_0 .net "b", 0 0, v000000000282f140_0;  1 drivers
+v00000000027e3b00_0 .net "c", 0 0, v000000000282ee20_0;  1 drivers
+v00000000027e3ba0_0 .net "y", 0 0, L_000000000282eb00;  alias, 1 drivers
+L_000000000282f640 .reduce/nor L_00000000027b3030;
+L_000000000282f1e0 .reduce/nor L_000000000282f840;
+L_000000000282eb00 .reduce/nor L_000000000282f900;
+    .scope S_00000000027d64f0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 12 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 18 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 24 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 30 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 36 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 42 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 48 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ed80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282f140_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000282ee20_0, 0, 1;
+    %vpi_call 2 54 "$monitor", v000000000282ed80_0, "|", v000000000282f140_0, "|", v000000000282ee20_0, " = ", v000000000282f320_0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "or_using_nor_tb.vl";
+    "or_using_nor.vl";

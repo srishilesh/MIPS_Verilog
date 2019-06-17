@@ -1,0 +1,58 @@
+module nandgate_tb;
+
+wire t_y;
+reg t_a,t_b,t_c;
+
+nandgate my_gate(.a(t_a),.b(t_b),.c(t_c),.y(t_y));
+
+initial begin
+
+	t_a = 1'b0;
+	t_b = 1'b0;
+	t_c = 1'b0;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b0;
+	t_c = 1'b1;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b1;
+	t_c = 1'b0;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b1;
+	t_c = 1'b1;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b0;
+	t_c = 1'b0;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b0;
+	t_c = 1'b1;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b1;
+	t_c = 1'b0;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b1;
+	t_c = 1'b1;
+$monitor(t_a," nand ",t_b," nand ",t_c," = ",t_y);
+
+end 
+endmodule

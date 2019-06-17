@@ -1,0 +1,29 @@
+module or_using_nor_tb;
+
+wire t_y,t_y1,t_y2;
+reg t_a,t_b;
+
+or_using_nor my_gate(.a(t_a),.b(t_b),.y(t_y1));
+initial begin
+
+	t_a = 1'b0;
+	t_b = 1'b0;
+$monitor(t_a,"|",t_b," = ",t_y);
+	#5
+
+	t_a = 1'b0;
+	t_b = 1'b1;
+$monitor(t_a,"|",t_b," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b0;
+$monitor(t_a,"|",t_b," = ",t_y);
+	#5
+
+	t_a = 1'b1;
+	t_b = 1'b1;
+$monitor(t_a,"|",t_b," = ",t_y);
+
+end
+endmodule
