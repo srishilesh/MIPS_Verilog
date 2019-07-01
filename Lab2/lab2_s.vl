@@ -1,0 +1,110 @@
+
+module mod_or(c,a,b);
+input a,b;
+output c;
+assign c =a|b ;
+endmodule
+
+module andgate(a,b,c,d);
+input a,b,c;
+output d;
+assign d=a & b & c;
+endmodule
+
+module mod_and(c,a,b);
+input a,b;
+output c;
+assign c=a & b ;
+endmodule
+
+module notgate(a,d);
+input a;
+output d;
+assign d=~a;
+endmodule
+
+module mod_xor(c,a,b);
+input a,b;
+output c;
+assign c= a ^ b;
+endmodule 
+
+module labevaltb;
+reg a,b,c,d;
+wire g1,g2,g3,g4,g5,g6,e;
+//labeval mygate(.a(ta),.b(tb),.c(tc),.d(td),.e(te));
+mod_xor my(.c(g1),.a(b),.b(d));
+notgate my1(.a(c),.d(g2));
+mod_and my2(.c(g3),.a(g2),.b(g1));
+notgate my3(.a(a),.d(g4));
+andgate my4(.a(g4),.b(b),.c(c),.d(g5));
+mod_or my5(.c(g6),.a(g3),.b(g5));
+initial begin
+a=0;
+b=0;
+c=0;  
+d=0;
+//$monitor($time,"a=%b",g1);
+$monitor($time," a=%b , b=%b , c=%b , d=%b , e=%b ",a,b,c,d,g6);
+#3  a=0;
+  b=0;
+  c=0;
+  d=1;
+#3  a=0;
+  b=0;
+  c=1;
+  d=0;
+#3  a=0;
+  b=0;
+  c=1;
+  d=1;
+#3  a=0;
+  b=1;
+  c=0;
+  d=0;
+#3  a=0;
+  b=1;
+  c=0;
+  d=1;
+#3  a=0;
+  b=1;
+  c=1;
+  d=0;
+#3  a=0;
+  b=1;
+  c=1;
+  d=1;
+#3  a=1;
+  b=0;
+  c=0;
+  d=0;  
+#3  a=1;
+  b=0;
+  c=0;
+  d=1;
+#3  a=1;
+  b=0;
+  c=1;
+  d=0;
+#3  a=1;
+  b=0;
+  c=1;
+  d=1;  
+#3  a=1;
+  b=1;
+  c=0;
+  d=0;  
+#3  a=1;
+  b=1;
+  c=0;
+  d=1;  
+#3  a=1;
+  b=1;
+  c=1;
+  d=0;
+#3  a=1;
+  b=1;
+  c=1;
+  d=1;    
+end // initial
+endmodule // labevaltb
