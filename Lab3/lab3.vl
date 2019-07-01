@@ -1,0 +1,5 @@
+module lab3(a,b,c,d,y);
+input a,b,c,d;
+output y;
+assign y =!(c & d);
+endmodule
