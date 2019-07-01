@@ -1,0 +1,140 @@
+module lab2_tb;
+wire t_y,t_y1,t_y2,t_y3,t_y4,t_y5,t_p1,t_p2,t_q2,t_p3,t_q3,t_p4,t_q4,t_o2,t_o5;
+reg t_a,t_b,t_c,t_d;
+
+notgate gate1_a(.a(t_a),.y(t_p1));
+andgate gate1_b(.a(t_d),.b(t_p1),.y(t_y1));
+
+notgate gate2_a(.a(t_c),.y(t_p2));
+andgate gate2_b(.a(t_b),.b(t_p2),.y(t_q2));
+andgate gate2_c(.a(t_q2),.b(t_d),.y(t_y2));
+
+notgate gate3_a(.a(t_b),.y(t_p3));
+andgate gate3_b(.a(t_c),.b(t_p3),.y(t_q3));
+andgate gate3_c(.a(t_q3),.b(t_a),.y(t_y3));
+
+notgate gate4_a(.a(t_b),.y(t_p4));
+andgate gate4_b(.a(t_a),.b(t_p4),.y(t_q4));
+notgate gate4_c(.a(t_d),.y(t_y5));
+andgate gate4_d(.a(t_q4),.b(t_y5),.y(t_y5));
+
+orgate gate5_a(.a(t_y1),.b(t_y2),.y(t_o2));
+orgate gate5_b(.a(t_y3),.b(t_y5),.y(t_o5));
+orgate gate5_c(.a(t_o2),.b(t_o5),.y(t_y));
+
+initial begin
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b1;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b1;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_c = 1'b0;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_c = 1'b1;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_c = 1'b1;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_c = 1'b1;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_c = 1'b1;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_c = 1'b0;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_c = 1'b1;
+t_d = 1'b0;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_c = 1'b1;
+t_d = 1'b1;
+$monitor(t_a," / ",t_b," / ",t_c," / ",t_d,"=",t_y);
+
+end
+endmodule
