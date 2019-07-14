@@ -1,0 +1,59 @@
+module full_adder_tb;
+reg t_a,t_b,t_cin;
+wire t_cout,t_sum;
+
+full_adder mygate(.a(t_a),.b(t_b),.cin(t_cin),.cout(t_cout),.sum(t_sum));
+initial begin
+
+$monitor("a ","b ","cin ","cout ","sum ");
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_cin = 1'b0;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_cin = 1'b1;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_cin = 1'b0;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_cin = 1'b1;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_cin = 1'b0;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_cin = 1'b1;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_cin = 1'b0;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+#5
+
+t_a = 1'b1;
+t_b = 1'b1;
+t_cin = 1'b1;
+$monitor(t_a," ",t_b," ",t_cin," ",t_cout," ",t_sum);
+
+end
+endmodule
