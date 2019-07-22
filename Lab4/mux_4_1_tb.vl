@@ -1,0 +1,18 @@
+module mux_4_1_tb;
+reg [3:0]a;
+reg [3:0]b;
+reg [3:0]c;
+reg [3:0]d;
+reg [1:0]sel;
+wire [3:0]out;
+
+mux_4_1(.a(a),.b(b),.c(c),.d(d),.sel(sel),.out(out));
+initial begin
+
+a = 2'b00;
+b = 2'b00;
+c = 2'b00;
+d = 2'b00;
+sel = 1'b0;
+$monitor(a," ",b," ",c," ",d," ",sel,"  ",out);
+#5

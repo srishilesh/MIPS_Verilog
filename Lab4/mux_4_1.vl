@@ -1,0 +1,10 @@
+module mux_4_1(a,b,c,d,sel,out)
+input [3:0]a , [3:0]b, [3:0]c, [3:0]d, [1:0]sel;
+output [3:0]out;
+case(sel)
+2'b00: assign out = a;
+2'b01: assign out = b;
+2'b10: assign out = c;
+2'b11: assign out = d;
+endcase
+endmodule

@@ -1,0 +1,59 @@
+module mux_8_1_gates;
+reg a;
+reg b;
+reg c;
+reg d;
+reg e;
+reg f;
+reg g;
+reg h;
+reg [2:0]sel;
+reg x , y;
+wire z1,z2,z3,z4,z5,z6;
+wire out;
+
+andgate andg(.a(x),.b(y),.y(z1));
+orgate org(.a(x),.b(y),.y(z2));
+notgate notg(.a(x),.y(z3));
+xorgate xorg(.a(x),.b(y),.y(z4));
+xnorgate xnorg(.a(x),.b(y),.y(z5));
+nandgate nandg(.a(x),.b(y),.y(z6));
+
+mux_8_1 mux(.a(a),.b(b),.c(c),.d(d),.e(e),.f(f),.g(g),.h(h),.sel(sel),.out(out));
+initial begin
+
+
+x = 1'b0;
+y = 1'b0;
+sel = 3'b000;
+assign a = z1;
+assign b = z2;
+assign c = z3;
+assign d = z4;
+assign e = z5;
+assign f = z6;
+g = 0;
+h = 0;
+
+$monitor("x = %b ",x,"y=%b ",y,"and=%b ",a,"or=%b ",b,"notx=%b ",c,"xor=%b ",d,"xnor=%b ",e,"nand=%b ",f,"adder=%b ",g,"subtractor=%b ",h,"sel=%b ",sel,"out=%b ",out);
+#100
+
+x=1'b0;
+y=1'b1;
+sel = 3'b001;
+$monitor("x = %b ",x,"y=%b ",y,"and=%b ",a,"or=%b ",b,"notx=%b ",c,"xor=%b ",d,"xnor=%b ",e,"nand=%b ",f,"adder=%b ",g,"subtractor=%b ",h,"sel=%b ",sel,"out=%b ",out);
+#100
+
+sel = 3'b010;
+$monitor("x = %b ",x,"y=%b ",y,"and=%b ",a,"or=%b ",b,"notx=%b ",c,"xor=%b ",d,"xnor=%b ",e,"nand=%b ",f,"adder=%b ",g,"subtractor=%b ",h,"sel=%b ",sel,"out=%b ",out);
+#100
+
+sel = 3'b011;
+$monitor("x = %b ",x,"y=%b ",y,"and=%b ",a,"or=%b ",b,"notx=%b ",c,"xor=%b ",d,"xnor=%b ",e,"nand=%b ",f,"adder=%b ",g,"subtractor=%b ",h,"sel=%b ",sel,"out=%b ",out);
+#100 
+
+sel = 3'b100;
+$monitor("x = %b ",x,"y=%b ",y,"and=%b ",a,"or=%b ",b,"notx=%b ",c,"xor=%b ",d,"xnor=%b ",e,"nand=%b ",f,"adder=%b ",g,"subtractor=%b ",h,"sel=%b ",sel,"out=%b ",out);
+
+end
+endmodule

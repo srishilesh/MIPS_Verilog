@@ -1,0 +1,38 @@
+module mux_8_1_tb;
+reg [7:0]a;
+reg [7:0]b;
+reg [7:0]c;
+reg [7:0]d;
+reg [7:0]e;
+reg [7:0]f;
+reg [7:0]g;
+reg [7:0]h;
+reg [2:0]sel;
+wire [7:0]out;
+
+mux_8_1 gate(.a(a),.b(b),.c(c),.d(d),.e(e),.f(f),.g(g),.h(h),.sel(sel),.out(out));
+initial begin
+
+sel = 0;
+a = 0;
+b = 0;
+c = 0;
+d = 0;
+e = 0;
+f = 0;
+g = 0;
+h = 0;
+#100
+
+sel = 3'd0;
+a = 8'd0;
+b = 8'd1;
+c = 8'd2;
+d = 8'd3;
+e = 8'd4;
+f = 8'd5;
+g = 8'd6;
+h = 8'd7;
+$monitor("a=%d ",a,"b=%d ",b,"c=%d ",c,"d=%d ",d,"e=%d ",e,"f=%d ",f,"g=%d ",g,"h=%d ",h,"sel=%d ",sel,"out=%d ",out);
+end
+endmodule
