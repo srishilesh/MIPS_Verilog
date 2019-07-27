@@ -1,0 +1,38 @@
+module encoder_tb;
+reg t_a,t_b,t_c,t_d;
+wire t_x,t_y;
+
+encoder gate(.a(t_a),.b(t_b),.c(t_c),.d(t_d),.x(t_x),.y(t_y));
+
+initial begin
+$monitor("I3 ","I2 ","I1 ","I0 "," O0 ","O1 ");
+#5
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b1;
+$monitor(t_a," ",t_b," ",t_c," ",t_d," ",t_x," ",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b0;
+t_c = 1'b1;
+t_d = 1'b0;
+$monitor(t_a," ",t_b," ",t_c," ",t_d," ",t_x," ",t_y);
+#5
+
+t_a = 1'b0;
+t_b = 1'b1;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," ",t_b," ",t_c," ",t_d," ",t_x," ",t_y);
+#5
+
+t_a = 1'b1;
+t_b = 1'b0;
+t_c = 1'b0;
+t_d = 1'b0;
+$monitor(t_a," ",t_b," ",t_c," ",t_d," ",t_x," ",t_y);
+
+end 
+endmodule

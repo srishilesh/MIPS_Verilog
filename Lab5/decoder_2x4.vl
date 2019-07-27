@@ -1,0 +1,17 @@
+module decoder_2x4(a,b,en,y3,y2,y1,y0);
+input a,b,en;
+output reg y3,y2,y1,y0;
+always @(a or b or en)begin
+if(en==1'b1)
+case({a,b})
+2'b00: {y3,y2,y1,y0} = 4'b0001;
+2'b01: {y3,y2,y1,y0} = 4'b0010;
+2'b10: {y3,y2,y1,y0} = 4'b0100;
+2'b11: {y3,y2,y1,y0} = 4'b1000;
+default: {y3,y2,y1,y0} = 4'bxxxx;
+endcase
+if(en == 0)
+{y3,y2,y1,y0} = 4'b1111;
+end
+endmodule
+
