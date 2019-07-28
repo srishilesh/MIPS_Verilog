@@ -1,22 +1,34 @@
 module demux_1x4(sel,data,a,b,c,d);
 input [1:0]sel;
-input data;
-output reg a,b,c,d;
+input [1:0]data;
+output reg [1:0] a,b,c,d;
 
-@always( data or sel)
+always @( data or sel)
 begin
 case(sel)
 2'b00: begin
-a = data;b = 0;c=0;d=0;
+a = data;
+b = 0;
+c=0;
+d=0;
 end
-2'b00: begin
-a = 0;b = data;c=0;d=0;
+2'b01: begin
+a = 0;
+b = data;
+c=0;
+d=0;
 end
-2'b00: begin
-a = 0;b = 0;c=data;d=0;
+2'b10: begin
+a = 0;
+b = 0;
+c=data;
+d=0;
 end
-2'b00: begin
-a = 0;b = 0;c=0;d=data;
+2'b11: begin
+a = 0;
+b = 0;
+c=0;
+d=data;
 end
 endcase
 end
