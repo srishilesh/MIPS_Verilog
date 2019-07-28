@@ -1,10 +1,15 @@
 module demux_1x4_tb;
-reg data;
-reg [1:0]sel;
-wire a,b,c,d;
+reg [1:0]t_data;
+reg [1:0]t_sel;
+wire [1:0] t_a,t_b,t_c,t_d;
 
-demux_1x4 gate(.sel(sel),.data(data),.a(a),.b(b),.c(c),.d(d));
+demux_1x4 gat(.sel(t_sel),.data(t_data),.a(t_a),.b(t_b),.c(t_c),.d(t_d));
 
 initial begin
-data = 1;
-sel = 
+t_data = 2'b10;
+t_sel = 2'b10;
+
+$monitor(t_sel[0],t_sel[1]," ",t_a," ",t_b," ",t_c," ",t_d);
+
+end
+endmodule
