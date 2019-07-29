@@ -1,0 +1,16 @@
+module instruction(inst,type);
+input [31:0] inst[0:2];
+//input [5:0] opcode,func;
+output reg[1:0]type;
+always @(*)
+begin
+case (inst)
+32'b0: begin $display(inst," ","R type"); end
+32'b00000000000000000000000000000010: begin $display(inst," ","J type"); end
+default: begin $display(inst," ","I type"); end
+
+endcase
+  
+end
+
+endmodule

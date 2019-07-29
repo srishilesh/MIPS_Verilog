@@ -1,0 +1,30 @@
+module instruction_tb;
+reg [31:0] inst[0:2];
+//reg [5:0]opcode,func;
+wire [1:0]type;
+
+//opcode = inst[31:26];
+//func = inst[5:0];
+instruction check(.inst(inst),.type(type));
+
+initial begin
+//opcode = 6'b000000;
+//func = 6'b100000;
+//$monitor(opcode,"  ",func);
+inst[0] = 32'b0;
+#5
+
+//opcode = 6'b000010;
+//func = 6'b100100;
+//$monitor(opcode,"  ",func);
+inst[1] = 32'b00000000000000000000000000000010;
+#5
+
+//opcode = 6'b001000;
+//func = 6'b011000;
+//$monitor(opcode,"  ",func);
+inst[2] = 32'b100;
+
+
+end
+endmodule

@@ -1,0 +1,12 @@
+Ps que : write verilog code and tb to implement instruction fetch cycle
+Have 3 instructions in 2d array 3 * 32 
+Classify them as r or I or j type based on opcode and fn bits. 
+You may use Internet 
+Print the category of instruction using display stmt
+Increment PC by 4 using the adder and display new value of PC 
+Record pgm output and formats of instructions in obs note
+
+
+add - 000000	100000
+and - 000000	100100
+mult - 000000	011000	
