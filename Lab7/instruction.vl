@@ -1,0 +1,12 @@
+module instr_type(instr,sel);
+input [5:0] instr;
+output [1:0] sel;
+
+always@(*)
+case(instr)
+6'b0: begin sel = 2'b00; $display("R-type"); end
+6'b000010: begin sel = 2'b01; $display("J-type"); end
+default: begin sel = 2'b10; $display("I-type"); end
+endcase
+
+endmodule

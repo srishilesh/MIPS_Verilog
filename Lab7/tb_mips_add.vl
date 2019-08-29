@@ -1,0 +1,16 @@
+module tb_mips_8;
+reg [31:0] instr;
+wire [1:0] select;
+wire [31:0] data[0:2];
+
+instr_type one(instr[31:26],select);
+register_file two(instr[25:21],data[0]);
+register_file three(instr[20:16],data[1]);
+mips_8 four(instr,data[0],data[1],data[2]);
+
+initial begin
+  instr = 32'b00000010000100011001100000100000;
+  #5;
+end
+endmodule
+

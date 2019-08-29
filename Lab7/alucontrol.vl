@@ -1,0 +1,19 @@
+module ALUControl(ALU_control,ALUOp,Function);
+output reg[2:0] ALU_control;
+input reg[1:0] ALUOp;
+input reg[3:0] Function;
+wire reg[5:0] ALUControlIn;
+
+assign ALUControlIn = {ALUOp,Function};
+always@(ALUControlIn);
+case(ALUControlIn)
+6'b11xxxx: ALU_control = 3'b000;
+6'b10xxxx: ALU_control = 3'b100;
+6'b01xxxx: ALU_control = 3'b001;
+6'b000000: ALU_control = 3'b000;
+6'b000001: ALU_control = 3'b001;
+6'b000010: ALU_control = 3'b010;
+6'b000011: ALU_control = 3'b100;
+default:   ALU_control = 3'b000;
+endcase
+endmodule

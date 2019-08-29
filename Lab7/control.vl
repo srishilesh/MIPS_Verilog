@@ -1,0 +1,21 @@
+module control(input[2:0] opcode,input reset, output reg[1:0] aluop, output reg reg_write);
+always @(*)
+begin
+  if(reset == 1'b1) begin
+    reg_write = 1'b0;
+    aluop = 2'b00;
+    end
+  else begin
+        case(opcode)
+        3'b000: begin
+                aluop = 2'b00;
+                reg_write = 1'b1;
+                end
+        default: begin
+                aluop = 2'b00;
+                reg_write = 1'b1;
+                end
+        endcase
+    end
+end
+endmodule

@@ -1,0 +1,36 @@
+module mips_8(opcode,rs,rt,rd);
+input [5:0] opcode;
+input [31:0] rs;
+input [31:0]rt;
+output reg [31:0] rd;
+always@(rs or rt)
+case(opcode)
+6'b100000: begin rd = rs + rt; $display("Addition is %b",rd); end
+default: begin $display("ADD return error"); end
+endcase
+endmodule
+
+
+
+module instr_type(instr,sel);
+input [5:0] instr;
+output reg[0:1]  sel;
+always@(*)
+case(instr)
+6'b0: begin sel = 2'b00; $display("R-type"); end
+endcase
+endmodule
+
+
+module register_file(read_address,read_data);
+   input[4:0] read_address;
+   output reg[31:0] read_data;
+   always@(*)
+   case(read_address)
+   5'b10000: read_data = 32'b01;
+   5'b10001: read_data = 32'b11;
+   endcase
+endmodule
+
+
+
