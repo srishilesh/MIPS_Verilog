@@ -1,0 +1,12 @@
+module register_file(read_address,read_data);
+input [4:0]read_address;
+output [31:0]read_data;
+
+always@(*);
+case(read_address)
+5'b10000: read_data = 32'b00;
+5'b10001: read_data = 32'b01;
+5'b10010: read_data = 32'b10;
+5'b10011: read_data = 32'b11;
+endcase
+endmodule

@@ -1,0 +1,15 @@
+module tb_sci;
+reg [31:0] instr;
+wire [31:0] data[0:2];
+
+register_file two(instr[25:21],data[0]);
+register_file three(instr[20:16],data[1]);
+aluunit four(data[0],data[1],instr[5:0],data[2]);
+
+initial begin
+  instr = 32'b00000010010100011001100000100011;
+  #5;
+
+end
+endmodule
+

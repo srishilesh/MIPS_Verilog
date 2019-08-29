@@ -1,0 +1,16 @@
+module aluunit(read_data1,read_data2,aluop,aluout);
+input [0:31]read_data1;
+input [0:31]read_data2;
+input aluop[0:4];
+output reg[0:31]aluout;
+
+always(*)
+case(aluop)
+5'b00000: begin aluout = read_data1 + read_data2; $display("Addition: %b",aluout); end
+5'b00001: begin aluout = read_data1 - read_data2; $display("Subraction: %b",aluout); end
+5'b00010: begin aluout = read_data1 & read_data2; $display("And: %b",aluout); end
+5'b00011: begin aluout = read_data1 | read_data2; $display("OR: %b",aluout); end
+5'b00100: begin aluout = read_data1 << read_data2; $display("Shifting: %b",aluout); end
+endcase
+
+endmodule
