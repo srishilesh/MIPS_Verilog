@@ -1,0 +1,29 @@
+module register_file(read_address,read_data);
+    input [4:0] read_address;
+    output reg[31:0] read_data;
+    always@(*)
+    case(read_address)
+        5'b10000: read_data = 32'b00;
+        5'b10001: read_data = 32'b01;
+        5'b10010: read_data = 32'b10;
+        5'b10011: read_data = 32'b11;
+        default: read_data = 32'bxx;
+    endcase
+endmodule
+
+module aluunit(read_data1,read_data2,imm,aluop,aluout);
+    input [31:0] read_data1;
+    input [31:0] read_data2;
+    input [5:0] aluop;
+    input [31:0] imm;
+    output reg[31:0] aluout;
+    
+    always@(*)
+    case(aluop)
+        6'b000100: begin aluout = read_data2 + imm; $display("Addition of %b and %b is %b",read_data2,imm,aluout); end
+        6'b001100: begin aluout = read_data2 & imm; $display("AND of %b and %b is %b",read_data2,imm,aluout); end
+        6'b101101: begin aluout = read_data2 | imm; $display("OR of %b and %b is %b",read_data2,imm,aluout); end
+        6'b101010: begin aluout = read_data2 << imm; $display("Shifting of %b and %b is %b",read_data2,imm,aluout); end
+        default: begin $display("ERROR"); end
+    endcase
+endmodule
