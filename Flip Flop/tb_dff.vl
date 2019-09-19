@@ -1,0 +1,21 @@
+module tb_dff();
+reg clk,d;
+wire q,q1;
+
+dff dut(d,clk,q,q1);
+
+initial begin
+  clk=0;
+     forever #5 clk = ~clk;  
+end 
+initial begin 
+  
+  $monitor($time," %b D=%b Q=%b Q1=%b",clk,d,q,q1);
+  d = 0;
+  #10;
+  d = 1;
+  #10;
+  $finish;
+
+end 
+endmodule 
