@@ -12,3 +12,11 @@ module dff(d,clk,q,q1);
    end
  
 endmodule
+
+/*
+clk   D   Q   ~Q
+0     0   Q   ~Q
+0     1   Q   ~Q
+1     0   0    1
+1     1   1    0
+*/
