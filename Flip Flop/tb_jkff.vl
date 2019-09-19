@@ -1,32 +1,36 @@
 module tb_jkff;
 
-reg c=0;
-reg j=0;
-reg k=0;
-reg reset=1;
+reg c,j,k;
 wire q,q1;
+    
+jkff ff(q,q1,j,k,c);
 
-jkff ff(q,q1,j,k,c,reset);
-
+initial begin
+  c=0;
+  forever #1 c=~c;
+end
 initial
   begin
-    $monitor($time," %b j=%b k=%b q=%b q1=%b reset=%b",c,j,k,q,q1,reset);
-    j=1'b1;  
-    k=1'b1; 
-    #1;
-    $monitor($time," %b j=%b k=%b q=%b q1=%b reset=%b",c,j,k,q,q1,reset);
+    $monitor($time," %b j=%b k=%b q=%b q1=%b",c,j,k,q,q1);
+    j=1'b0;  
+    k=1'b0; 
+    #2; 
+   
     j=1'b0;  
     k=1'b1; 
-    #1;
-    $monitor($time," %b j=%b k=%b q=%b q1=%b reset=%b",c,j,k,q,q1,reset);
+    #2;
+   
     j=1'b1;  
     k=1'b0; 
-    #1; 
-    reset=1'b0;
-    #5;
+    #2; 
+   
+    j=1'b1;  
+    k=1'b1; 
+    
+    #1;
     $finish;
   end
 
-always #1 c=~c;
+// always #1 c=~c;
 
 endmodule
