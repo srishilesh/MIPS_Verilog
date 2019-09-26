@@ -1,0 +1,19 @@
+module ripple_tb;
+reg clk; // Input
+reg reset; // Input
+wire [3:0] q; // Output
+
+ripple_carry_counter r1 (.q(q), .clk(clk), .reset(reset));
+initial
+clk = 0;
+initial
+begin
+$monitor("%b",q);
+reset = 1;
+#1 reset = 0;
+#150;
+$finish;
+
+end
+always #5 clk = ~clk;
+ endmodule
